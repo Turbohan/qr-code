@@ -29,9 +29,14 @@ func GetEmployeeInfo(employeeID int) (*Employee, error) {
 	//	return nil, err
 	//}
 
-	expireTime1, _ := time.Parse("2006-01-02 15:04:05", "2026-01-11 22:50:57")
-	updateAt1, _ := time.Parse("2006-01-02 15:04:05", "2023-01-11 22:51:00")
-	verifyTime1, _ := time.Parse("2006-01-02 15:04:05", "2024-04-15 08:00:15")
+	expireTime1, _ := time.Parse("2006-01-02", "2026-01-11")
+	updateAt1, _ := time.Parse("2006-01-02 15:04:05", "2023-01-11")
+	expireTime2, _ := time.Parse("2006-01-02", "2026-01-09")
+	updateAt2, _ := time.Parse("2006-01-02 15:04:05", "2023-01-9")
+	expireTime3, _ := time.Parse("2006-01-02", "2027-01-10")
+	updateAt3, _ := time.Parse("2006-01-02 15:04:05", "2023-01-10")
+	expireTime4, _ := time.Parse("2006-01-02", "2026-05-18")
+	updateAt4, _ := time.Parse("2006-01-02 15:04:05", "2023-05-18")
 	employees := []*Employee{
 		{
 			ID:         1,
@@ -42,56 +47,52 @@ func GetEmployeeInfo(employeeID int) (*Employee, error) {
 			CertiNum:   "SGL20192300708",
 			Title:      "质检员 2019年09月30日",
 			Status:     "正常",
-			Work:       "黑龙江省华海建筑水利工程有限公司\n",
+			Work:       "黑龙江省华海建筑水利工程有限公司",
 			ExpireTime: expireTime1,
 			UpdateAt:   updateAt1,
-			VerifyTime: verifyTime1,
-			Code:       "2",
+			VerifyTime: time.Now(),
 		},
 		{
 			ID:         2,
 			Name:       "杨利滨",
 			Pic:        "https://innowoa.ks3-cn-beijing.ksyuncs.com/test/code/yanglibing.jpg",
 			CertiName:  "水利水电工程施工现场管理人员培训合格证书",
-			IdNum:      "232602198012123312",
-			CertiNum:   "SGL20192300708",
-			Title:      "质检员 2019年09月30日",
+			IdNum:      "23260*********4910",
+			CertiNum:   "SGL20192300696",
+			Title:      "施工员 2019年09月27日",
 			Status:     "正常",
-			Work:       "黑龙江省华海建筑水利工程有限公司\n",
-			ExpireTime: expireTime1,
-			UpdateAt:   updateAt1,
-			VerifyTime: verifyTime1,
-			Code:       "2",
+			Work:       "黑龙江省华海建筑水利工程有限公司",
+			ExpireTime: expireTime2,
+			UpdateAt:   updateAt2,
+			VerifyTime: time.Now(),
 		},
 		{
 			ID:         3,
 			Name:       "李海峰",
 			Pic:        "https://innowoa.ks3-cn-beijing.ksyuncs.com/test/code/lihaifeng.jpg",
 			CertiName:  "水利水电工程施工现场管理人员培训合格证书",
-			IdNum:      "232602198012123312",
-			CertiNum:   "SGL20192300708",
-			Title:      "质检员 2019年09月30日",
+			IdNum:      "23022*********2455",
+			CertiNum:   "SGL20192300877",
+			Title:      "质检员 2020年07月28日",
 			Status:     "正常",
-			Work:       "黑龙江省华海建筑水利工程有限公司\n",
-			ExpireTime: expireTime1,
-			UpdateAt:   updateAt1,
-			VerifyTime: verifyTime1,
-			Code:       "2",
+			Work:       "黑龙江省华海建筑水利工程有限公司",
+			ExpireTime: expireTime3,
+			UpdateAt:   updateAt3,
+			VerifyTime: time.Now(),
 		},
 		{
 			ID:         4,
 			Name:       "师勇贺",
 			Pic:        "https://innowoa.ks3-cn-beijing.ksyuncs.com/test/code/shiyonghe.jpg",
 			CertiName:  "水利水电工程施工现场管理人员培训合格证书",
-			IdNum:      "232602198012123312",
-			CertiNum:   "SGL20192300708",
-			Title:      "质检员 2019年09月30日",
+			IdNum:      "23062*********0653",
+			CertiNum:   "SGL20232300458",
+			Title:      "施工员 2023年05月18日",
 			Status:     "正常",
-			Work:       "黑龙江省华海建筑水利工程有限公司\n",
-			ExpireTime: expireTime1,
-			UpdateAt:   updateAt1,
-			VerifyTime: verifyTime1,
-			Code:       "2",
+			Work:       "黑龙江省华海建筑水利工程有限公司",
+			ExpireTime: expireTime4,
+			UpdateAt:   updateAt4,
+			VerifyTime: time.Now(),
 		},
 	}
 	// 查询所有员工信息
