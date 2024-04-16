@@ -30,13 +30,13 @@ func GetEmployeeInfo(employeeID int) (*Employee, error) {
 	//}
 
 	expireTime1, _ := time.Parse("2006-01-02", "2026-01-11")
-	updateAt1, _ := time.Parse("2006-01-02 15:04:05", "2023-01-11")
+	updateAt1, _ := time.Parse("2006-01-02", "2023-01-11")
 	expireTime2, _ := time.Parse("2006-01-02", "2026-01-09")
-	updateAt2, _ := time.Parse("2006-01-02 15:04:05", "2023-01-9")
+	updateAt2, _ := time.Parse("2006-01-02", "2023-01-9")
 	expireTime3, _ := time.Parse("2006-01-02", "2027-01-10")
-	updateAt3, _ := time.Parse("2006-01-02 15:04:05", "2023-01-10")
+	updateAt3, _ := time.Parse("2006-01-02", "2023-01-10")
 	expireTime4, _ := time.Parse("2006-01-02", "2026-05-18")
-	updateAt4, _ := time.Parse("2006-01-02 15:04:05", "2023-05-18")
+	updateAt4, _ := time.Parse("2006-01-02", "2023-05-18")
 	employees := []*Employee{
 		{
 			ID:         1,

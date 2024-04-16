@@ -2,12 +2,14 @@ package qr_code
 
 import (
 	"encoding/json"
-	"github.com/skip2/go-qrcode"
+	"fmt"
 	"html/template"
 	"log"
 	"net/http"
 	"qrcode/model"
 	"strconv"
+
+	"github.com/skip2/go-qrcode"
 )
 
 func HandleScan(w http.ResponseWriter, r *http.Request) {
@@ -90,25 +92,36 @@ func ScanHandler(w http.ResponseWriter, r *http.Request) {
 		</head>
 		<body>
 			<h1>中国水利工程协会证书验证结果</h1>
-			<img src="{{.Pic}}" left="50px" right="100px" height="200px" width="200px" alt="Avatar">
+			<div style="text-align: center;">
+				<img src="{{.Pic}}" height="300px" width="200px" alt="Avatar">
+			</div>
 			<p>证书名称: {{.CertiName}}</p>
-			<p>姓     名: {{.Name}}</p>
+			<p>姓&#20;&#20;&#20;&#20;&#20;&#20;名: {{.Name}}</p>
 			<p>身份证号: {{.IdNum}}</p>
 			<p>证书编号: {{.CertiNum}}</p>
 			<p>岗位名称: {{.Title}}</p>
 			<p>当前状态: {{.Status}}</p>
 			<p>工作单位: {{.Work}}</p>
-			<p>有效期至: {{.ExpireTime}}</p>
-			<p>更新日期: {{.UpdateAt}}</p>
-			<br><br>
-			<div id="datetime">
-				<script>
-					setInterval("document.getElementById('datetime').innerHTML=new Date().toLocaleString();", 1000);
-				</script>
-			</div>
+			<p>有效期至: %s</p>
+			<p>更新日期: %s</p>
+			<script>
+				function updateDate() {
+					var currentDate = new Date();
+					var formattedDate = currentDate.getFullYear() + "年" + (currentDate.getMonth() + 1) + "月" + currentDate.getDate() + "日 " + currentDate.toLocaleTimeString();
+					document.getElementById("currentDate").innerText = formattedDate;
+				}
+				window.onload = function() {
+					updateDate();
+					setInterval(updateDate, 1000); // 每秒更新一次日期
+				};
+			</script>
+			<br>
+			<p>验证时间:<span id="currentDate"></span></p>
+			</br>
 		</body>
 		</html>
 	`
+	html = fmt.Sprintf(html, employee.ExpireTime.Format("2006年1月2日"), employee.UpdateAt.Format("2006年1月2日"))
 
 	// 使用模板引擎填充数据
 	tmpl, err := template.New("employee").Parse(html)
