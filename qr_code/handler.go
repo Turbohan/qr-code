@@ -91,12 +91,12 @@ func ScanHandler(w http.ResponseWriter, r *http.Request) {
 			<title>中国水利工程协会证书验证结果</title>
 		</head>
 		<body>
-			<h1>中国水利工程协会证书验证结果</h1>
+			<h2 style="text-align: center;">中国水利工程协会证书验证结果</h2>
 			<div style="text-align: center;">
-				<img src="{{.Pic}}" height="300px" width="200px" alt="Avatar">
+				<img src="{{.Pic}}" height="150px" width="100px" alt="Avatar">
 			</div>
 			<p>证书名称: {{.CertiName}}</p>
-			<p>姓&#20;&#20;&#20;&#20;&#20;&#20;名: {{.Name}}</p>
+			<p>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名: {{.Name}}</p>
 			<p>身份证号: {{.IdNum}}</p>
 			<p>证书编号: {{.CertiNum}}</p>
 			<p>岗位名称: {{.Title}}</p>
@@ -107,7 +107,7 @@ func ScanHandler(w http.ResponseWriter, r *http.Request) {
 			<script>
 				function updateDate() {
 					var currentDate = new Date();
-					var formattedDate = currentDate.getFullYear() + "年" + (currentDate.getMonth() + 1) + "月" + currentDate.getDate() + "日 " + currentDate.toLocaleTimeString();
+					var formattedDate = currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + currentDate.getDate() + " " + currentDate.toLocaleTimeString();
 					document.getElementById("currentDate").innerText = formattedDate;
 				}
 				window.onload = function() {
@@ -116,7 +116,7 @@ func ScanHandler(w http.ResponseWriter, r *http.Request) {
 				};
 			</script>
 			<br>
-			<p>验证时间:<span id="currentDate"></span></p>
+			<p>验证时间: <span id="currentDate"></span></p>
 			</br>
 		</body>
 		</html>
